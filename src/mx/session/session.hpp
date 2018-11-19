@@ -70,7 +70,7 @@ class session  {
         return m_session_id;
     }
 
-    void session::set_state(session_state state) {
+    inline    void session::set_state(session_state state) {
         m_state = state;
     }
 

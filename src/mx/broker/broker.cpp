@@ -19,7 +19,7 @@ namespace mx {
     }
 
     void broker::attach_session(const std::shared_ptr<session> &session) {
-        MX_TRACE("attach session: %1%", *session);
+        MX_TRACE("attach session: %1%", session);
         auto result = m_sessions.insert(
                 std::make_pair(session->get_session_id(), session));
         if (!result.second) {
@@ -28,14 +28,14 @@ namespace mx {
     }
 
     void broker::detach_session(const session_id &id) {
-        auto session_itr = m_sessions.find(session_id);
+        auto session_itr = m_sessions.find(id);
         if (session_itr == m_sessions.end()) {
             throw std::logic_error("broker session does not exist");
         }
 
 
         MX_TRACE("detach session: %1%", session_itr->second.get());
-        auto session_subscriptions_itr = m_session_subscriptions.find(session_id);
+        auto session_subscriptions_itr = m_session_subscriptions.find(id);
         if (session_subscriptions_itr != m_session_subscriptions.end()) {
             MX_TRACE("cleaning up session subscriptions");
             for (const auto& subscription_id : session_subscriptions_itr->second) {
@@ -77,7 +77,7 @@ namespace mx {
             throw std::logic_error("broker session does not exist");
         }
 
-        MX_TRACE("%1%, %2%", *session_itr->second % *publish_message);
+        //MX_TRACE("%1%, %2%", *session_itr->second % &publish_message);
     }
 
     void broker::process_subscribe_message(const session_id &session_id, subscribe_message *subscribe_message) {
@@ -86,7 +86,7 @@ namespace mx {
             throw std::logic_error("broker session does not exist");
         }
 
-        MX_TRACE("%1%, %2%", *session_itr->second % *subscribe_message);
+       // MX_TRACE("%1%, %2%", *session_itr->second % &subscribe_message);
     }
 
 

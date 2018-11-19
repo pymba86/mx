@@ -26,24 +26,24 @@ namespace mx {
         subscriptions m_subscriptions;
     };
 
-    broker_subscriptions::broker_subscriptions(): m_subscriptions() {
+    inline broker_subscriptions::broker_subscriptions(): m_subscriptions() {
 
     }
 
-    broker_subscriptions::~broker_subscriptions() {
+    inline broker_subscriptions::~broker_subscriptions() {
 
     }
 
-    bool broker_subscriptions::add_subscription(const subscription_id &id, const std::shared_ptr<session> &session) {
+    inline    bool broker_subscriptions::add_subscription(const subscription_id &id, const std::shared_ptr<session> &session) {
         auto result = m_subscriptions.emplace(id, session);
         return result.second;
     }
 
-    bool broker_subscriptions::remove_subscription(const subscription_id &id) {
+    inline  bool broker_subscriptions::remove_subscription(const subscription_id &id) {
         return m_subscriptions.erase(id) != 0;
     }
 
-    void broker_subscriptions::remove_subscriptions(const std::shared_ptr<session> &session) {
+    inline void broker_subscriptions::remove_subscriptions(const std::shared_ptr<session> &session) {
         auto itr = m_subscriptions.begin();
         auto end = m_subscriptions.end();
         while (itr != end) {
@@ -55,7 +55,7 @@ namespace mx {
         }
     }
 
-    const broker_subscriptions::subscriptions broker_subscriptions::get_subscriptions() const {
+    inline const broker_subscriptions::subscriptions broker_subscriptions::get_subscriptions() const {
         return m_subscriptions;
     }
 

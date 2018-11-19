@@ -12,7 +12,7 @@ namespace mx {
      * [PUBLISH, Request|id, Options|dict, Topic|uri, Arguments|list]
      * [PUBLISH, Request|id, Options|dict, Topic|uri, Arguments|list, ArgumentsKw|dict]
      * */
-    class publish_message : message {
+    class publish_message : public message {
 
     public:
         publish_message();
@@ -131,15 +131,15 @@ namespace mx {
         return m_options;
     }
 
-    std::string publish_message::get_topic() const {
+    inline std::string publish_message::get_topic() const {
         return m_topic.as<std::string>();
     }
 
-    const msgpack::object &publish_message::get_arguments() const {
+    inline const msgpack::object &publish_message::get_arguments() const {
         return m_arguments;
     }
 
-    const msgpack::object &publish_message::get_arguments_kw() const {
+    inline    const msgpack::object &publish_message::get_arguments_kw() const {
         return m_arguments_kw;
     }
 

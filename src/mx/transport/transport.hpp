@@ -9,6 +9,7 @@
 
 namespace mx {
     class transport {
+    public:
         virtual ~transport() = default;
         virtual bool send_message(message&& message) = 0;
     };

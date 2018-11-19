@@ -10,7 +10,7 @@ namespace mx {
 
     class generator {
     public:
-        generator() noexcept;
+        generator();
 
         explicit generator(uint64_t range_start, uint64_t range_end);
 
@@ -43,8 +43,8 @@ namespace mx {
         return m_next_id++;
     }
 
-    generator::generator() : m_range_start(std::numeric_limits<uint64_t>::min(),
-                                           m_range_end(std::numeric_limits<uint64_t>::max())) {
+    inline generator::generator() : m_range_start(std::numeric_limits<uint64_t>::min()),
+                                           m_range_end(std::numeric_limits<uint64_t>::max())  {
 
     }
 

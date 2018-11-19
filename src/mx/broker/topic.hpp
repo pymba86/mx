@@ -16,8 +16,8 @@ namespace mx {
         bool add_session(const std::shared_ptr<session>& session);
         bool remove_session(const std::shared_ptr<session>& session);
 
-        std::string_view get_topic() const;
-        const std::unordered_set<std::shared_ptr<session>>& get_session();
+        const std::string& get_topic() const;
+        const std::unordered_set<std::shared_ptr<session>>& get_sessions();
 
     private:
         const std::string m_topic;
@@ -45,11 +45,11 @@ namespace mx {
         return m_sessions.erase(session) != 0;
     }
 
-    inline std::string_view broker_topic::get_topic() const {
+    inline const std::string& broker_topic::get_topic() const {
         return m_topic;
     }
 
-    inline const std::unordered_set<std::shared_ptr<session>> &broker_topic::get_session() {
+    inline const std::unordered_set<std::shared_ptr<session>> &broker_topic::get_sessions() {
         return m_sessions;
     }
 

@@ -30,7 +30,7 @@ namespace mx {
     }
 
     bool router_impl::attach_session(const std::shared_ptr<session> &session) {
-        MX_TRACE("attaching session: %1%", *session);
+        MX_TRACE("attaching session: %1%", session);
 
         auto result = m_sessions.insert(
                 std::make_pair(session->get_session_id(), session));
@@ -41,7 +41,7 @@ namespace mx {
             return true;
         }
 
-        MX_TRACE("failed to attach session: %1%", *session);
+        MX_TRACE("failed to attach session: %1%", session);
 
         return false;
 

@@ -14,6 +14,7 @@ set(BOOST_ROOT /opt/boost)
 find_package(Boost REQUIRED COMPONENTS program_options system thread random)
 find_package(Websocketpp REQUIRED)
 find_package(Msgpack REQUIRED)
+find_package(Jansson REQUIRED)
 
 MESSAGE( STATUS "CMAKE_ROOT:               " ${CMAKE_ROOT} )
 MESSAGE( STATUS "CMAKE_INSTALL_PREFIX:     " ${CMAKE_INSTALL_PREFIX} )
@@ -31,6 +32,7 @@ include_directories(
         ${OPENSSL_INCLUDE_DIR}
         ${Websocketpp_INCLUDE_DIRS}
         ${Msgpack_INCLUDE_DIRS}
+        ${JANSSON_INCLUDE_DIRS}
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 

@@ -34,18 +34,16 @@ namespace mx {
     BOOST_PP_IIF(BOOST_PP_GREATER(BOOST_PP_VARIADIC_SIZE(__VA_ARGS__), 1), MX_TRACE_ARGS(__VA_ARGS__), MX_TRACE_NOARGS(BOOST_PP_VARIADIC_ELEM(0, __VA_ARGS__)))
 
 #define MX_TRACE_NOARGS(fmt) \
-    if (MX::trace::is_enabled()) { \
-        std::cerr << "[" << MX::trace::base_file_name(__FILE__) << ":" << __LINE__ << "][" << __FUNCTION__ << "] " \
+    if (mx::trace::is_enabled()) { \
+        std::cerr << "[" << mx::trace::base_file_name(__FILE__) << ":" << __LINE__ << "][" << __FUNCTION__ << "] " \
                 << boost::format(fmt) << std::endl; \
     }
 
 #define MX_TRACE_ARGS(fmt, ...) \
-    if (MX::trace::is_enabled()) { \
-        std::cerr << "[" << MX::trace::base_file_name(__FILE__) << ":" << __LINE__ << "][" << __FUNCTION__ << "] " \
+    if (mx::trace::is_enabled()) { \
+        std::cerr << "[" << mx::trace::base_file_name(__FILE__) << ":" << __LINE__ << "][" << __FUNCTION__ << "] " \
                 << (boost::format(fmt) % __VA_ARGS__) << std::endl; \
     }
 
-}
-}
 
 #endif //MX_TRACE_HPP

@@ -39,7 +39,91 @@ namespace mx {
         YIELD = 70
     };
 
-    const char* message_type_to_string(message_type type);
+   inline const char* message_type_to_string(message_type type) {
+        const char* str = nullptr;
+
+        switch(type)
+        {
+            case message_type::HELLO:
+                str = "hello";
+                break;
+            case message_type::WELCOME:
+                str = "welcome";
+                break;
+            case message_type::ABORT:
+                str = "abort";
+                break;
+            case message_type::CHALLENGE:
+                str = "challenge";
+                break;
+            case message_type::AUTHENTICATE:
+                str = "authenticate";
+                break;
+            case message_type::GOODBYE:
+                str = "goodbye";
+                break;
+            case message_type::HEARTBEAT:
+                str = "heartbeat";
+                break;
+            case message_type::ERROR:
+                str = "error";
+                break;
+            case message_type::PUBLISH:
+                str = "publish";
+                break;
+            case message_type::PUBLISHED:
+                str = "published";
+                break;
+            case message_type::SUBSCRIBE:
+                str = "subscribe";
+                break;
+            case message_type::SUBSCRIBED:
+                str = "subscribed";
+                break;
+            case message_type::UNSUBSCRIBE:
+                str = "unsubscribe";
+                break;
+            case message_type::UNSUBSCRIBED:
+                str = "unsubscribed";
+                break;
+            case message_type::EVENT:
+                str = "event";
+                break;
+            case message_type::CALL:
+                str = "call";
+                break;
+            case message_type::CANCEL:
+                str = "cancel";
+                break;
+            case message_type::RESULT:
+                str = "result";
+                break;
+            case message_type::REGISTER:
+                str = "register";
+                break;
+            case message_type::REGISTERED:
+                str = "registered";
+                break;
+            case message_type::UNREGISTER:
+                str = "unregister";
+                break;
+            case message_type::UNREGISTERED:
+                str = "unregistered";
+                break;
+            case message_type::INVOCATION:
+                str = "invocation";
+                break;
+            case message_type::INTERRUPT:
+                str = "interrupt";
+                break;
+            case message_type::YIELD:
+                str = "yield";
+                break;
+            default:
+                throw std::invalid_argument("unknown message type");
+                break;
+        }
+    }
 
     inline std::ostream& operator<<(std::ostream& os, const message_type& type) {
         os << message_type_to_string(type);

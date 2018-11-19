@@ -20,23 +20,23 @@ namespace mx {
         void remove_router(const std::string &realm);
 
     private:
-        std::unordered_map<std::string, std::shared_ptr<router>,std::string> m_routers;
+        std::unordered_map<std::string, std::shared_ptr<router>> m_routers;
     };
 
-    manager::manager() : m_routers() {}
+    inline    manager::manager() : m_routers() {}
 
-    bool manager::add_router(const std::shared_ptr<router> &router) {
+    inline bool manager::add_router(const std::shared_ptr<router> &router) {
 
         auto result = m_routers.insert(std::make_pair(router->get_realm(), router));
         return result.second;
     }
 
-    std::shared_ptr<router> manager::get_router(const std::string &realm) {
+    inline std::shared_ptr<router> manager::get_router(const std::string &realm) {
         auto itr = m_routers.find(realm);
         return itr != m_routers.end() ? itr->second : nullptr;
     }
 
-    void manager::remove_router(const std::string &realm) {
+    inline void manager::remove_router(const std::string &realm) {
 
     };
 

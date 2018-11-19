@@ -11,7 +11,7 @@ namespace mx {
     /**
      * [SUBSCRIBE, Request|id, Options|dict, Topic|uri]
      */
-    class subscribe_message : message {
+    class subscribe_message : public message {
 
     public:
         subscribe_message();
@@ -97,7 +97,7 @@ namespace mx {
         return m_options;
     }
 
-    std::string subscribe_message::get_topic() const {
+    inline    std::string subscribe_message::get_topic() const {
         return m_topic.as<std::string>();
     }
 

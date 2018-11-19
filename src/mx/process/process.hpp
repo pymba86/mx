@@ -9,8 +9,9 @@ namespace mx {
 
     class manager;
 
-    class process {
-        explicit process(std::shared_ptr<manager> manager);
+    class message_process {
+    public:
+        explicit message_process(std::shared_ptr<manager> manager);
 
         void process_message(const std::unique_ptr<message> &message,
                              std::unique_ptr<transport> &&transport,
@@ -21,7 +22,7 @@ namespace mx {
 
     };
 
-    inline process::process(std::shared_ptr<manager> manager) : m_manager(std::move(manager)) {
+    inline message_process::message_process(std::shared_ptr<manager> manager) : m_manager(std::move(manager)) {
 
     }
 }

@@ -1,0 +1,6 @@
+
+
+set(JANSSON_ROOT /opt/jansson)
+set(JANSSON_FOUND TRUE)
+set(JANSSON_INCLUDE_DIRS "${JANSSON_ROOT}/include")
+set(JANSSON_LIBRARIES "${JANSSON_ROOT}/lib")

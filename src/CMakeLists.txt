@@ -42,7 +42,7 @@ set(PRIVATE_HEADERS
         mx/rawsocket/tcp_listener.cpp
         mx/rawsocket/rawsocket_transport.hpp
         mx/serialization/expandable_buffer.hpp
-        mx/main.cpp mx/serialization/json_serializer.hpp mx/serialization/json_serializer.cpp)
+        mx/main.cpp mx/serialization/json_serializer.hpp mx/serialization/json_serializer.cpp mx/node/node.hpp mx/rawsocket/rawsocket_client.hpp mx/handler/handler.hpp mx-router/main.cpp mx-node/main.cpp)
 
 
 set(TEST mx/test.cpp)
